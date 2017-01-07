@@ -1,4 +1,44 @@
-﻿Ext.define('GreatHelper.data.CacheStore',{
+
+/**
+ * 'CacheStore' a usefull store for cache data in localstorage & reload with 2 way.
+ *
+ *  @example
+ *   Ext.define('MyApp.store.CustomerAddress', {
+ *       extend: 'GreatHelper.data.CacheStore',
+ *       model: 'MyApp.model.CustomerAddress',
+ *       storeId: 'CustomerAddressStore',
+ *       autoLoad: true,
+ *       cacheWay: 'version'
+ *       proxy: {
+ *           type: 'ajax',
+ *           url: '/customer/getAddress',
+ *           reader: {
+ *               type: 'array',
+ *               rootProperty: 'data'
+ *           }
+ *       }
+ *   });
+ *  
+ *   Ext.define('MyApp.store.CustomerAddress', {
+ *       extend: 'GreatHelper.data.CacheStore',
+ *       model: 'MyApp.model.CustomerAddress',
+ *       storeId: 'CustomerAddressStore',
+ *       autoLoad: true,
+ *       cacheWay: 1209600 // -> 2*7*24*60*60
+ *       proxy: {
+ *           type: 'ajax',
+ *           url: '/customer/getAddress',
+ *           reader: {
+ *               type: 'array',
+ *               rootProperty: 'data'
+ *           }
+ *       }
+ *   });
+ *
+ * By : M.Reza Layeghi https://github.com/mrlayeghi/GreateHelper/blob/master/src/data/CacheStore.js
+*/
+
+Ext.define('GreatHelper.data.CacheStore',{
     extend: 'Ext.data.Store',
 
     /*
